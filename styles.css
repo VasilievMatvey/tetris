@@ -6,14 +6,81 @@
 
 body {
   background-color: #111;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   height: 100vh;
   overflow: hidden;
   margin: 0;
   color: #fff;
   font-family: "Khula", sans-serif;
+  text-align: center;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #16d9e3;
+}
+
+.start {
+  font-size: 1.5rem;
+}
+
+h1 {
+  line-height: 1.4;
+  font-size: 4rem;
+  margin: 5px;
+}
+
+.screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  transition: margin 0.5s ease-out;
+  background: linear-gradient(180deg, #111 15%, #101820 100%);
+}
+
+.screen.up {
+  margin-top: -100vh;
+}
+
+.level-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+.level-list li {
+  margin: 10px;
+}
+
+.level-btn {
+  background-color: transparent;
+  border: 2px solid #c0c0c0;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  padding: 0.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.level-btn:hover {
+  border: 2px solid #16d9e3;
+  color: #16d9e3;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.primary {
+  color: #16d9e3;
 }
 
 .container {
@@ -26,10 +93,15 @@ body {
 }
 
 .board {
-  background: #1d1d1d;
-  width: 100vw;
-  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
+  background: #1d1d1d;
+  width: 500px;
+  height: 600px;
+  border-radius: 6px;
+  overflow: hidden;
 }
 
 .platform {
@@ -38,7 +110,6 @@ body {
   background-color: rgb(165, 165, 165);
   width: 150px;
   height: 10px;
-  border-radius: 6px;
   box-shadow: 0 0 3px rgb(255, 255, 255);
   position: absolute;
 }

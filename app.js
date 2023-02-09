@@ -1,8 +1,9 @@
 /*Переменные и константы*/
-const container = document.querySelector(".container");
+const screens = document.querySelectorAll(".screen");
 const board = document.querySelector(".board");
 const platform = document.querySelector(".platform");
 const userScore = document.querySelector(".score");
+const startBTN = document.querySelector("#start");
 const colors = [
   "#dd2a80",
   "#963df4",
@@ -13,11 +14,22 @@ const colors = [
   "#bdf116",
   "#873750",
 ];
-let hp = 3;
 let platPos = 175;
 let score = 0;
 userScore.innerHTML = score;
-createRandomFigur();
+
+/*Начало игры*/
+startBTN.addEventListener("click", (event) => {
+  event.preventDefault();
+  screens[0].classList.add("up");
+  createRandomFigur();
+});
+
+function stopGame() {
+  userScore.innerHTML = score;
+  userScore.parentNode.classList.add("hide");
+  board.innerHTML = `<h1>Игра окончена! <br/ >Ваш счёт: <span class = "primary">${score}<span></h1>`;
+}
 
 /*Поведение платформы*/
 document.addEventListener("keydown", (event) => {
@@ -71,7 +83,7 @@ function createRandomFigur() {
   let id = setInterval(() => {
     if (
       positionY === 570 - figureHeight &&
-      !(platPos >= x || platPos == x || platPos + 150 <= x)
+      !(platPos - 15 >= x || platPos == x || platPos + 155 <= x)
     ) {
       clearInterval(id);
       figure.remove();
@@ -84,9 +96,8 @@ function createRandomFigur() {
       if (positionY === 600 - figureHeight) {
         clearInterval(id);
         figure.remove();
-        score--;
-        userScore.innerHTML = score;
-        createRandomFigur();
+        platform.remove();
+        stopGame();
       }
     }
   }, 5);
