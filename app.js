@@ -41,7 +41,7 @@ document.addEventListener("keydown", (event) => {
       break;
     case "ArrowLeft":
     case "a":
-    case "ArrowLeft":
+    case "A":
       platMove("left");
       break;
   }
