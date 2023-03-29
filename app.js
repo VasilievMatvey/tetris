@@ -4,6 +4,7 @@ const board = document.querySelector(".board");
 const platform = document.querySelector(".platform");
 const userScore = document.querySelector(".score");
 const startBTN = document.querySelector("#start");
+const audio = document.querySelector(".audio");
 const colors = [
   "#dd2a80",
   "#963df4",
@@ -21,6 +22,7 @@ userScore.innerHTML = score;
 /*Начало игры*/
 startBTN.addEventListener("click", (event) => {
   event.preventDefault();
+  audio.play();
   screens[0].classList.add("up");
   createRandomFigur();
 });
