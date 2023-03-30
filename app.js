@@ -28,6 +28,8 @@ startBTN.addEventListener("click", (event) => {
 });
 
 function stopGame() {
+  audio.pause();
+  audio.currentTime = 0;
   userScore.innerHTML = score;
   userScore.parentNode.classList.add("hide");
   board.innerHTML = `<h1>Игра окончена! <br/ >Ваш счёт: <span class = "primary">${score}<span></h1>`;
